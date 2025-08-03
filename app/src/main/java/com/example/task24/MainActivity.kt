@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(bindingClass.root)
         bindingClass.button.setOnClickListener {
             try {
-                //bindingClass.text.text = data2.getDataUser("Jon")
+                bindingClass.text.text = data2.getDataUser("Jon")
                 //bindingClass.text.text = tomtit.fly()
                 bindingClass.text.text = letBirdClick(ostrich)
             } catch (e: Exception) {
