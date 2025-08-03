@@ -1,13 +1,10 @@
 package com.example.task24
-
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.task24.databinding.ActivityMainBinding
-import com.example.task24.date.DataView
 import com.example.task24.repository.UserManager
-import com.example.task24.repository.Task1repository
 
 
 class MainActivity : AppCompatActivity() {
