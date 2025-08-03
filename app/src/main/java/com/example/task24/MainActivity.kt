@@ -1,14 +1,16 @@
 package com.example.task24
+
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.task24.databinding.ActivityMainBinding
+import com.example.task24.date.ApiManager
 import com.example.task24.repository.UserManager
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var data2: UserManager
+    val data2 = UserManager(ApiManager())
     lateinit var bindingClass: ActivityMainBinding
     val ostrich = Ostrich()
     val tomtit = Tomtit()
@@ -19,8 +21,8 @@ class MainActivity : AppCompatActivity() {
         bindingClass.button.setOnClickListener {
             try {
                 bindingClass.text.text = data2.getDataUser("Jon")
-                //bindingClass.text.text = tomtit.fly()
-                bindingClass.text.text = letBirdClick(ostrich)
+               // bindingClass.text.text = tomtit.fly()
+               // bindingClass.text.text = letBirdClick(ostrich)
             } catch (e: Exception) {
                 bindingClass.text.text = "Ошибка данных"
             }
@@ -34,4 +36,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+}
+
+class NetworkManager {
+    fun performGet(url: String){
+        //типа реализовано
+    }
+    // дальше реализуются другие методы
 }
