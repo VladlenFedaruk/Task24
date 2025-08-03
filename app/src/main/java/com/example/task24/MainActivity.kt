@@ -1,20 +1,40 @@
 package com.example.task24
 
+import android.graphics.Color
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.task24.databinding.ActivityMainBinding
+import com.example.task24.date.DataView
+import com.example.task24.repository.UserManager
+import com.example.task24.repository.Task1repository
+
 
 class MainActivity : AppCompatActivity() {
+    lateinit var data2: UserManager
+    lateinit var bindingClass: ActivityMainBinding
+    val ostrich = Ostrich()
+    val tomtit = Tomtit()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        bindingClass = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(bindingClass.root)
+        bindingClass.button.setOnClickListener {
+            try {
+                //bindingClass.text.text = data2.getDataUser("Jon")
+                //bindingClass.text.text = tomtit.fly()
+                bindingClass.text.text = letBirdClick(ostrich)
+            } catch (e: Exception) {
+                bindingClass.text.text = "Ошибка данных"
+            }
         }
+        fun viewParam(textView: TextView) {
+            textView.text = "hello"
+            textView.setTextColor(Color.BLACK)
+        }
+        viewParam(bindingClass.TextView1)
+        viewParam(bindingClass.TextView2)
+
     }
+
 }
